@@ -97,7 +97,7 @@ function App() {
   };
 
   return (
-    <div className="wrapper flex flex-wrap overflow-x-hidden dark:text-white">
+    <div className="wrapper flex flex-wrap overflow-x-hidden dark:text-white no-scrollbar">
       <div className="sidebar bg-white dark:bg-zinc-900 p-4 flex flex-col justify-between w-full sm:w-1/5 sticky top-0 h-screen sm:h-auto">
         <div>
           {isLoading ? (
@@ -171,7 +171,7 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="main flex-1 w-full min-w-[400px] p-4 bg-gray-100 dark:bg-zinc-800 relative pb-20 overflow-y-scroll overflow-x-clip min-h-screen">
+      <div className="main flex-1 w-full min-w-[400px] p-4 bg-gray-100 dark:bg-zinc-800 relative pb-20 overflow-y-scroll overflow-x-clip min-h-screen no-scrollbar">
         <nav className="flex justify-between mr-2">
           <ul className="options flex gap-4 items-center font-semibold text-gray-700 dark:text-white">
             Weather Data
