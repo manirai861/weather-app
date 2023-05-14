@@ -53,7 +53,7 @@ The backend server will start running on `http://localhost:8081`.
 3. Install dependencies: `npm install`
 4. Start the frontend development server: `npm run dev`
 
-The frontend server will start running on `[http://localhost:5173](http://localhost:5173)`.
+The frontend server will start running on `http://localhost:5173`.
 
 ## Usage
 
