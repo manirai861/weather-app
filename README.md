@@ -42,8 +42,8 @@ The backend server will start running on `http://localhost:8081`.
 2. Navigate to the backend directory: `cd spring-weather-app`
 3. Build the Docker image: `docker build -t weather-app-backend .`
 4. Run the Docker container:
-   - Linux/Mac: `docker run -p 8081:8081 -e API_KEY=<your_api_key> weather-app-backend`
-   - Windows (PowerShell): `docker run -p 8081:8081 -e API_KEY=<your_api_key> weather-app-backend`
+   - Linux/Mac: `docker run -p 8081:8081 -e API_KEY=<your_api_key> -e PORT=8081 weather-app-backend`
+   - Windows (PowerShell): `docker run -p 8081:8081 -e API_KEY=<your_api_key> -e PORT=8081 weather-app-backend`
 
 The backend server will start running on `http://localhost:8081`.
 
