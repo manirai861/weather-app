@@ -48,7 +48,7 @@ The backend server will start running on `http://localhost:8081`.
 The backend server will start running on `http://localhost:8081`.
 
 ### Frontend Setup
-1. Clone the repository: `git clone https://github.com/mshivam019/spring-weather-frontend' 
+1. Clone the repository: `git clone https://github.com/mshivam019/spring-weather-frontend` 
 2. Navigate to the frontend directory: `cd spring-weather-frontend`
 3. Install dependencies: `npm install`
 4. Start the frontend development server: `npm run dev`
