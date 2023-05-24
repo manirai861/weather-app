@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-
-const useDarkSide = () => {
+import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
+const UseDarkSide = () => {
   const [colorTheme, setTheme] = useState(localStorage.theme || "dark");
 
   useEffect(() => {
@@ -24,7 +24,21 @@ const useDarkSide = () => {
     }
   }, [colorTheme]);
 
-  return [colorTheme, setTheme];
+  const toggleDarkMode = () => {
+    const newTheme = colorTheme === "dark" ? "light" : "dark";
+    localStorage.theme = newTheme;
+    setTheme(newTheme);
+  };
+
+  return (
+    <button onClick={toggleDarkMode}>
+      {colorTheme === "dark" ? (
+        <SunIcon className="w-6 h-6 text-yellow-500" />
+      ) : (
+        <MoonIcon className="w-6 h-6 text-gray-900" />
+      )}
+    </button>
+  );
 };
 
-export default useDarkSide;
+export default UseDarkSide;

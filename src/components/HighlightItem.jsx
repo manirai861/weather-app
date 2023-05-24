@@ -104,7 +104,7 @@ function HighlightItem({ weatherData }) {
   );
 }
 HighlightItem.propTypes = {
-  weatherData: PropTypes.object.isRequired,
+  weatherData: PropTypes.object,
 };
 
 export default HighlightItem;

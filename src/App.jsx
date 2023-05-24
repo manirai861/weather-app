@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 import HighlightItem from "./components/HighlightItem";
-import useDarkSide from "./utils/useDarkSide";
+import UseDarkSide from "./components/UseDarkSide";
 import Loading from "./components/Loading";
 import Sidebar from "./components/Sidebar";
 function App() {
@@ -9,25 +8,6 @@ function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const [colorTheme, setTheme] = useDarkSide();
-
-  const toggleDarkMode = () => {
-    const newTheme = colorTheme === "dark" ? "light" : "dark";
-    localStorage.theme = newTheme;
-    setTheme(newTheme);
-  };
-
-  const renderThemeChanger = () => {
-    return (
-      <button onClick={toggleDarkMode}>
-        {colorTheme === "dark" ? (
-          <SunIcon className="w-6 h-6 text-yellow-500" />
-        ) : (
-          <MoonIcon className="w-6 h-6 text-gray-900" />
-        )}
-      </button>
-    );
-  };
   const handleSearch = async () => {
     setIsLoading(true);
     try {
@@ -57,7 +37,7 @@ function App() {
             Weather Data
           </ul>
           <ul className="options units flex gap-4 items-center ml-4 p-2 bg-zinc-300 dark:bg-zinc-700 rounded-full">
-            {renderThemeChanger()}
+            <UseDarkSide />
           </ul>
         </nav>
         <div className="flex gap-4 mt-2"></div>
