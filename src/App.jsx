@@ -42,91 +42,6 @@ function App() {
     }
     setIsLoading(false);
   };
-  function getTime() {
-    const dt = weatherData.dt;
-    const timezone = weatherData.timezone;
-    const utc_seconds = parseInt(dt, 10) + parseInt(timezone, 10);
-    const utc_milliseconds = utc_seconds * 1000;
-    const local_date = new Date(utc_milliseconds);
-    const hours = local_date.getUTCHours().toString().padStart(2, "0");
-    const minutes = local_date.getUTCMinutes().toString().padStart(2, "0");
-    const seconds = local_date.getUTCSeconds().toString().padStart(2, "0");
-    const time = hours + ":" + minutes + ":" + seconds;
-    return time;
-  }
-  function getSunTime(timeType) {
-    const timeTimestamp =
-      timeType === "sunrise"
-        ? weatherData.sys.sunrise * 1000
-        : weatherData.sys.sunset * 1000;
-    const formattedTime = new Date(timeTimestamp).toLocaleTimeString([], {
-      hour: "2-digit",
-      minute: "2-digit",
-    });
-    return formattedTime;
-  }
-  const highlightData = [
-    {
-      title: "Wind",
-      value: weatherData ? weatherData.wind.speed : 10,
-      unit: "km/h",
-    },
-    {
-      title: "Humidity",
-      value: weatherData ? weatherData.main.humidity : 0,
-      unit: "%",
-    },
-    {
-      title: "Visibility",
-      value: weatherData ? weatherData.visibility : 1000,
-      unit: "m",
-    },
-    {
-      title: "Time",
-      value: weatherData ? getTime() : "0:00",
-      unit: "Time in local",
-    },
-    {
-      title: "Feels like",
-      value: weatherData ? weatherData.main.feels_like : 50,
-      unit: "°C",
-    },
-    {
-      title: "Min Temp",
-      value: weatherData ? weatherData.main.temp_min : 0,
-      unit: "°C",
-    },
-    {
-      title: "Max Temp",
-      value: weatherData ? weatherData.main.feels_like : 100,
-      unit: "°C",
-    },
-    {
-      title: "Pressure",
-      value: weatherData ? weatherData.main.pressure : 99,
-      unit: "Atomospheric Pressure",
-    },
-    {
-      title: "Sea Level",
-      value: weatherData ? weatherData.main.sea_level : 99,
-      unit: "Atmospheric Pressure on sea level",
-    },
-    {
-      title: "Ground Level",
-      value: weatherData ? weatherData.main.grnd_level : 99,
-      unit: "Atmospheric Pressure on ground level",
-    },
-    {
-      title: "Sunrise",
-      value: weatherData ? getSunTime("sunrise") : "0:00",
-      unit: "Sunrise Time in your local timezone",
-    },
-    {
-      title: "Sunset",
-      value: weatherData ? getSunTime("sunset") : "0:00",
-      unit: "Sunset Time in your local timezone",
-    },
-  ];
 
   return (
     <div className="wrapper flex flex-wrap overflow-x-hidden dark:text-white no-scrollbar">
@@ -146,11 +61,7 @@ function App() {
           </ul>
         </nav>
         <div className="flex gap-4 mt-2"></div>
-        {isLoading ? (
-          <Loading />
-        ) : (
-          <HighlightItem highlightData={highlightData} />
-        )}
+        {isLoading ? <Loading /> : <HighlightItem weatherData={weatherData} />}
         <p className="credits text-xs text-center dark:text-white text-gray-700 absolute bottom-6 left-1/2 transform -translate-x-1/2">
           Weather data provided by OpenWeatherMap
         </p>
