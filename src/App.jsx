@@ -12,7 +12,7 @@ function App() {
     setIsLoading(true);
     try {
       const response = await fetch(
-        `https://spring-weather-app-production.up.railway.app/api/weather?location=${searchQuery}`
+        `https://weather-4syw.onrender.com/api/weather?location=${searchQuery}`
       );
       const data = await response.json();
       setWeatherData(data);
