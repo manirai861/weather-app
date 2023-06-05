@@ -5,7 +5,7 @@ The Weather App is a simple web application that allows users to retrieve and di
 
 Live Frontend: [https://spring-weather-frontend.vercel.app/](https://spring-weather-frontend.vercel.app/)
 
-Live API Endpoint: [https://spring-weather-app-production.up.railway.app/api/weather?location=london](https://spring-weather-app-production.up.railway.app/api/weather?location=london)
+Live API Endpoint: [https://weather-4syw.onrender.com/api/weather?location=london](https://weather-4syw.onrender.com/api/weather?location=london)
 
 ## Features
 
