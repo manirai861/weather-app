@@ -13,7 +13,7 @@ function App() {
     const apiKey = import.meta.env.VITE_OPEN_WEATHER_MAP_API_KEY;
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchQuery}&appid=${apiKey}&units=metric`;
     try {
-      await fetch(apiUrl);
+      const response = await fetch(apiUrl);
       const data = await response.json();
       setWeatherData(data);
       console.log(weatherData);
