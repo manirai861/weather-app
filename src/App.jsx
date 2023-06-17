@@ -11,6 +11,7 @@ function App() {
 
   const handleSearch = async () => {
     setIsLoading(true);
+    setError(null);
     const apiKey = import.meta.env.VITE_OPEN_WEATHER_MAP_API_KEY;
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchQuery}&appid=${apiKey}&units=metric`;
     try {
