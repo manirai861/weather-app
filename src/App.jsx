@@ -10,10 +10,10 @@ function App() {
 
   const handleSearch = async () => {
     setIsLoading(true);
+    const apiKey = process.env.OPEN_WEATHER_MAP_API_KEY;
+const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchQuery}&appid=${apiKey}&units=metric`;
     try {
-      const response = await fetch(
-        `https://weather-4syw.onrender.com/api/weather?location=${searchQuery}`
-      );
+      await fetch(apiUrl);
       const data = await response.json();
       setWeatherData(data);
       console.log(weatherData);
