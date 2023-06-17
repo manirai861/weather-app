@@ -7,6 +7,7 @@ function App() {
   const [weatherData, setWeatherData] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null); 
 
   const handleSearch = async () => {
     setIsLoading(true);
@@ -14,12 +15,18 @@ function App() {
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchQuery}&appid=${apiKey}&units=metric`;
     try {
       const response = await fetch(apiUrl);
-      const data = await response.json();
-      setWeatherData(data);
-      console.log(weatherData);
+      if (response.ok) {
+        const data = await response.json();
+        setWeatherData(data);
+        //console.log(weatherData);
+      } else {
+        setError("City not found"); 
+      }
     } catch (error) {
       console.log(error);
+      setError("An error occurred"); 
     }
+
     setIsLoading(false);
   };
 
@@ -41,7 +48,13 @@ function App() {
           </ul>
         </nav>
         <div className="flex gap-4 mt-2"></div>
-        {isLoading ? <Loading /> : <HighlightItem weatherData={weatherData} />}
+        {isLoading ? (
+        <Loading />
+          ) : error ? (
+        <div className="text-red-700 text-xl">{error}</div> 
+          ) : (
+        <HighlightItem weatherData={weatherData} />
+            )}
         <p className="credits text-xs text-center dark:text-white text-gray-700 absolute bottom-6 left-1/2 transform -translate-x-1/2">
           Weather data provided by OpenWeatherMap
         </p>
