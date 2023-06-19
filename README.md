@@ -3,7 +3,7 @@
 
 The Weather App is a simple web application that allows users to retrieve and display current weather information for a specific location. It consists of a frontend built with React, Vite, and Tailwind CSS.
 
-Live Frontend: [https://spring-weather-frontend.vercel.app/](https://spring-weather-frontend.vercel.app/)
+Live Frontend: [https://spring-weather.vercel.app](https://spring-weather.vercel.app)
 
 
 ## Features
